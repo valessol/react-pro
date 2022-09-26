@@ -10,3 +10,8 @@ export type CounterAction =
   | { 
         type: CounterActionTypes.RESET 
     };
+
+    
+export const doReset = (): CounterAction => ({ type: CounterActionTypes.RESET });
+
+export const doIncreaseBy = (value: number): CounterAction => ({ type: CounterActionTypes.INCREASE_BY, payload: { value } });
