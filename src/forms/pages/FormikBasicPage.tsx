@@ -52,6 +52,9 @@ const FormikBasicPage = () => {
           onChange={handleChange}
           value={values.firstName}
         />
+        {/* touched me dirá si el campo ha sido tocado, y si lo ha sido y hay error, se mostrará el span */}
+        {/* touched por si solo no hará esto, ya que no hay un evento onChange que dispare el validate cuando solamente se ingresa al campo y no se escribe nada */}
+        {/* para esto, se necesita escuchar el evento onBlur */}
         {touched.firstName && errors.firstName ? (
           <span>{errors.firstName}</span>
         ) : null}
@@ -60,6 +63,7 @@ const FormikBasicPage = () => {
         <input
           type="text"
           name="lastName"
+          onBlur={handleBlur}
           onChange={handleChange}
           value={values.lastName}
         />
@@ -71,6 +75,7 @@ const FormikBasicPage = () => {
         <input
           type="email"
           name="email"
+          onBlur={handleBlur}
           onChange={handleChange}
           value={values.email}
         />
