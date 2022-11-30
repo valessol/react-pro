@@ -2,7 +2,7 @@ import { FormEvent } from "react";
 import { useForm } from "../hooks/useForm";
 import "../styles/styles.css";
 
-const RegisterPage = () => {
+export const RegisterPage = () => {
   const {
     name,
     email,
@@ -21,7 +21,7 @@ const RegisterPage = () => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
-  console.log(name.trim().length);
+
   return (
     <div>
       <h1>Register Page</h1>

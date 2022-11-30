@@ -1,5 +1,5 @@
 import React from "react";
-import { useField } from "formik";
+import { useField, ErrorMessage } from "formik";
 
 interface Props {
   label: string;
@@ -8,9 +8,7 @@ interface Props {
 }
 
 const MyCheckbox = ({ label, ...props }: Props) => {
-  const [field, meta] = useField({ ...props, type: "checkbox" });
-  // field devuelve las propiedades como onBlur, onChange, value y name... los controles de formik
-  // meta contiene la información como touched, errors, etc
+  const [field] = useField({ ...props, type: "checkbox" });
 
   return (
     <>
@@ -19,9 +17,7 @@ const MyCheckbox = ({ label, ...props }: Props) => {
         {label}
       </label>
 
-      {meta.touched && meta.error && (
-        <span className="error">{meta.error}</span>
-      )}
+      <ErrorMessage name={props.name} component="span" />
     </>
   );
 };

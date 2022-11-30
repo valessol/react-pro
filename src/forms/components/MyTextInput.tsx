@@ -1,5 +1,5 @@
 import React from "react";
-import { useField } from "formik";
+import { useField, ErrorMessage } from "formik";
 
 interface Props {
   label: string;
@@ -10,7 +10,8 @@ interface Props {
 }
 
 const MyTextInput = ({ label, ...props }: Props) => {
-  const [field, meta] = useField(props);
+  const [field] = useField(props);
+  //const [field, meta] = useField(props);
   // field devuelve las propiedades como onBlur, onChange, value y name... los controles de formik
   // meta contiene la información como touched, errors, etc
 
@@ -18,9 +19,10 @@ const MyTextInput = ({ label, ...props }: Props) => {
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
       <input className="textInput" {...field} {...props} />
-      {meta.touched && meta.error && (
+      {/* {meta.touched && meta.error && (
         <span className="error">{meta.error}</span>
-      )}
+      )} */}
+      <ErrorMessage name={props.name} component="span" />
     </>
   );
 };
