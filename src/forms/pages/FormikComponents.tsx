@@ -48,7 +48,7 @@ const FormikComponents = () => {
             <ErrorMessage name="email" component="span" />
 
             <label htmlFor="jobType">Job Type</label>
-            <Field name="jobType" as="selects">
+            <Field name="jobType" as="select">
               <option value="">Pick something</option>
               <option value="developer">Developer</option>
               <option value="designer">Designer</option>
